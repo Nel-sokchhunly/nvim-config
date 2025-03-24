@@ -99,6 +99,11 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- tmux keys
+vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<cr>')
+vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<cr>')
+vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<cr>')
+vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<cr>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -285,6 +290,9 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
+        defaults = {
+          file_ignore_patterns = { 'node%_modules/.*' },
+        },
         -- defaults = {
         --   mappings = {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
